@@ -4,7 +4,7 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Chris Escobedo"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -24,7 +24,12 @@ __author__ = "???"
 
 def verbing(s):
     # your code here
-    return
+    if len(s) > 3 and 'ing' not in s:
+        return s + 'ing'
+    elif len(s) > 3 and 'ing' in s:
+        return s + 'ly'
+    else:
+        return s
 
 
 # E. not_bad
@@ -38,7 +43,17 @@ def verbing(s):
 
 def not_bad(s):
     # your code here
-    return
+    if s.find('not') < s.find('bad'):
+        slice1 = s.find('not')
+        slice2 = s.find('bad') + 3
+        s = s.replace(s[slice1:slice2], 'good')
+        return s
+    elif s.find('not') > s.find('bad'):
+        return s
+    elif 'bad' not in s:
+        return s
+    elif 'not' not in s:
+        return s
 
 
 # F. front_back
@@ -53,7 +68,35 @@ def not_bad(s):
 
 def front_back(a, b):
     # your code here
-    return
+    if len(a)%2 == 0:
+        div = len(a)//2
+        a_front = a[:div]
+        a_back = a[div:]
+        if len(b)%2 ==0:
+            div2 = len(b)//2
+            b_front = b[:div2]
+            b_back = b[div2:]
+            return a_front + b_front + a_back + b_back
+        else:
+            div2 = len(b)//2
+            b_front = b[:div2+1]
+            b_back = b[div2+1:]
+            return a_front + b_front + a_back + b_back
+    else:
+        div = len(a)//2
+        a_front = a[:div+1]
+        a_back = a[div+1:]
+        if len(b)%2 ==0:
+            div2 = len(b)//2
+            b_front = b[:div2]
+            b_back = b[div2:]
+            return a_front + b_front + a_back + b_back
+        else:
+            div2 = len(b)//2
+            b_front = b[:div2+1]
+            b_back = b[div2+1:]
+            return a_front + b_front + a_back + b_back
+    
 
 
 # Provided simple test() function used in main() to print

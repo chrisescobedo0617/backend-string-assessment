@@ -4,7 +4,7 @@ Kenzie assignment: String1
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = 'Chris Escobedo'
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -29,7 +29,13 @@ __author__ = "???"
 
 def donuts(count):
     # your code here
-    return
+    num_of_donuts = 0
+    if count < 10:
+        num_of_donuts = count
+    else:
+        num_of_donuts = 'many'
+    string = "Number of donuts: {}".format(num_of_donuts)
+    return string
 
 
 # B. both_ends
@@ -43,8 +49,10 @@ def donuts(count):
 
 def both_ends(s):
     # your code here
-    return
-
+    if len(s) > 2:
+        return s[0:2] + s[-2] + s[-1]
+    else:
+        return ''
 
 # C. fix_start
 # Given a string s, return a string where all occurrences
@@ -59,7 +67,18 @@ def both_ends(s):
 
 def fix_start(s):
     # your code here
-    return
+    fix_start_list = [s[0]]
+    for i, char in enumerate(s):
+        if i != 0:
+            if char == s[0]:
+                char = '*'
+                fix_start_list.append(char)
+            else:
+                fix_start_list.append(char)
+    fix_start_list = ''.join(fix_start_list)
+    return fix_start_list
+
+
 
 
 # D. mix_up
@@ -74,8 +93,17 @@ def fix_start(s):
 
 def mix_up(a, b):
     # your code here
-    return
-
+    mix_string = a + ' ' + b
+    mix_list = mix_string.split(' ')
+    string1 = [mix_list[0]]
+    string2 = [mix_list[1]]
+    string1 = ''.join(string1)
+    slice1 = string1[0:2]
+    string2 = ''.join(string2)
+    slice2 = string2[0:2]
+    string1 = string1.replace(slice1,slice2)
+    string2 = string2.replace(slice2,slice1)
+    return string1 + ' ' + string2
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
